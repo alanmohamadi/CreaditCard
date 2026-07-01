@@ -1,27 +1,19 @@
 
-import { BrowserRouter } from 'react-router'
-import {  Routes } from 'react-router'
+import { Route, Routes } from "react-router"
+import HomePage from "./page/HomePage"
+import Layout from "./components/partial/layout/Layout"
+import Login from "./page/login"
 
-import './App.css'
-import { HeaderActionsProvider } from './core/provider/HeaderActionProvider/HeaderAction'
-import ProtectedRoute from './core/provider/ProtectedRoute'
-import ToastProvider from './core/provider/ToastProvider'
-import { getRoutes } from './core/lib/getRoutes'
 
 function App() {
 
   return (
-    <HeaderActionsProvider>
-      <BrowserRouter basename="/app">
-
-        <ToastProvider/>
-        <ProtectedRoute>
-          <Routes >
-            
-          </Routes>
-        </ProtectedRoute>
-      </BrowserRouter>
-    </HeaderActionsProvider>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Layout>
   )
 }
 

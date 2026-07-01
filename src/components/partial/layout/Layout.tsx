@@ -20,8 +20,8 @@ export default function Layout({ children }: { children: ReactNode }) {
                 </div>
             </header>
 
-            <main className="flex-1 min-h-0 rounded-t-2xl overflow-y-auto no-scrollbar bg-white scroll-smooth">
-                <div className="h-full p-4 pb-4">
+            <main className="flex-1 min-h-0 rounded-t-2xl overflow-y-auto no-scrollbar scroll-smooth">
+                <div className="h-full p-2 pb-4">
                     {children}
                 </div>
             </main>

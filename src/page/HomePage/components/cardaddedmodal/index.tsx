@@ -1,16 +1,16 @@
 "use client";
-import { ArrowLeft,  } from "lucide-react";
-import { Modal } from "../../../../components/ui/Modal";
+import { ArrowLeft } from "lucide-react";
 import type { CardFormData } from "../../Type";
-
+import { Modal } from "../../../../components/ui/Modal";
 
 export interface CardAddedModalProps {
   isOpen: boolean;
   onClose: () => void;
   data: CardFormData | null;
+  onContinue?: () => void;
 }
 
-export function CardAddedModal({ isOpen, onClose, data }: CardAddedModalProps) {
+export function CardAddedModal({ isOpen, onClose, data, onContinue }: CardAddedModalProps) {
   if (!data) return null;
 
   const maskedNumber = data.cardNumber
@@ -22,8 +22,8 @@ export function CardAddedModal({ isOpen, onClose, data }: CardAddedModalProps) {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="flex flex-col items-center  justify-center ">
-        <div className=" text-left -translate-y-3">
+      <div className="flex flex-col items-center justify-center">
+        <div className="text-left -translate-y-3 w-full">
           <button
             onClick={onClose}
             className="w-13 h-8 rounded-full bg-[#242424] flex items-center justify-center text-white mb-5"
@@ -34,15 +34,11 @@ export function CardAddedModal({ isOpen, onClose, data }: CardAddedModalProps) {
           <h2 className="text-4xl font-bold text-white mb-1">My cards</h2>
           <p className="text-base text-[#EAEAEA99] leading-5 mt-3 mb-5">
             All your cards will appear here, If you wish to
-            <p>
-              add more you tap “add button” below
-            </p>
+            <p>add more you tap "add button" below</p>
           </p>
         </div>
 
-
-
-        <div className="w-full bg rounded-2xl  p-5 mb-6">
+        <div className="w-full bg rounded-2xl p-5 mb-6">
           <div className="flex items-center justify-between mb-8">
             <svg width="35" height="27" viewBox="0 0 33 27" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M32.4039 4.04204L32.414 22.9261C32.414 25.154 30.6847 26.9788 28.5834 26.9788L3.87078 27C1.74939 27 0.0201079 25.1752 0.0201079 22.958L0 4.07387C0 1.83536 1.72928 0.0212181 3.84062 0.0212181L28.5633 0C30.6747 0 32.4039 1.80354 32.4039 4.04204Z" fill="#F6C859" />
@@ -56,31 +52,32 @@ export function CardAddedModal({ isOpen, onClose, data }: CardAddedModalProps) {
             </svg>
 
             <span className="text-xs text-[#EAEAEA80] tracking-wider">
-              {data.saveCard ? <><svg width="52" height="17" viewBox="0 0 52 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M48.1677 0.274658H44.9338C43.9226 0.274658 43.1617 0.570542 42.7312 1.6167L36.5238 16.506H40.929C40.929 16.506 41.6599 14.5088 41.8101 14.0861H47.1765C47.3067 14.6461 47.6871 16.506 47.6871 16.506H51.5818L48.1677 0.274658ZM43.0115 10.7574C43.352 9.82746 44.6535 6.20289 44.6535 6.20289C44.6535 6.20289 45.0139 5.25184 45.2242 4.67064L45.5045 6.06552C45.5045 6.06552 46.3155 9.93314 46.4757 10.7574H43.0115Z" fill="white" />
-                <path d="M30.9369 4.78697C30.9269 5.53724 31.8379 6.04447 33.2997 6.79475C35.7126 7.95715 36.8339 9.35203 36.8039 11.2119C36.7839 14.5828 33.9204 16.7597 29.5252 16.7597C27.6429 16.7385 25.8408 16.337 24.8596 15.8932L25.4503 12.258L25.981 12.5116C27.3526 13.114 28.2537 13.3676 29.9257 13.3676C31.1271 13.3676 32.4187 12.8709 32.4387 11.7825C32.4487 11.0639 31.888 10.5567 30.2661 9.76415C28.6642 8.99274 26.5616 7.69297 26.5917 5.36817C26.6117 2.21912 29.5352 0 33.6701 0C35.2921 0 36.6036 0.359287 37.4246 0.686872L36.854 4.1952L36.4735 4.01556C35.6926 3.68797 34.7014 3.38152 33.3297 3.39209C31.6978 3.38152 30.9369 4.11066 30.9369 4.78697Z" fill="white" />
-                <path d="M24.8395 0.285156L22.2264 16.5059H18.0414L18.552 13.3569L19.383 8.1789L20.6445 0.295723L24.8395 0.285156Z" fill="white" />
-                <path d="M9.80171 8.64396C8.40003 4.89258 5.05603 1.77524 0 0.486033L0.0500628 0.158447H6.54782C7.42887 0.200716 8.13972 0.486032 8.38001 1.47936L9.80171 8.64396Z" fill="white" />
-                <path d="M18.9525 0.306396L12.3547 16.4954H7.9294L4.17493 2.96935C6.86814 4.79748 9.16088 7.69291 9.97184 9.70069L10.4124 11.3809L14.5173 0.306396H18.9525Z" fill="white" />
-              </svg>
-              </> : <><svg width="52" height="17" viewBox="0 0 52 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M48.1677 0.274658H44.9338C43.9226 0.274658 43.1617 0.570542 42.7312 1.6167L36.5238 16.506H40.929C40.929 16.506 41.6599 14.5088 41.8101 14.0861H47.1765C47.3067 14.6461 47.6871 16.506 47.6871 16.506H51.5818L48.1677 0.274658ZM43.0115 10.7574C43.352 9.82746 44.6535 6.20289 44.6535 6.20289C44.6535 6.20289 45.0139 5.25184 45.2242 4.67064L45.5045 6.06552C45.5045 6.06552 46.3155 9.93314 46.4757 10.7574H43.0115Z" fill="white" />
-                <path d="M30.9369 4.78697C30.9269 5.53724 31.8379 6.04447 33.2997 6.79475C35.7126 7.95715 36.8339 9.35203 36.8039 11.2119C36.7839 14.5828 33.9204 16.7597 29.5252 16.7597C27.6429 16.7385 25.8408 16.337 24.8596 15.8932L25.4503 12.258L25.981 12.5116C27.3526 13.114 28.2537 13.3676 29.9257 13.3676C31.1271 13.3676 32.4187 12.8709 32.4387 11.7825C32.4487 11.0639 31.888 10.5567 30.2661 9.76415C28.6642 8.99274 26.5616 7.69297 26.5917 5.36817C26.6117 2.21912 29.5352 0 33.6701 0C35.2921 0 36.6036 0.359287 37.4246 0.686872L36.854 4.1952L36.4735 4.01556C35.6926 3.68797 34.7014 3.38152 33.3297 3.39209C31.6978 3.38152 30.9369 4.11066 30.9369 4.78697Z" fill="white" />
-                <path d="M24.8395 0.285156L22.2264 16.5059H18.0414L18.552 13.3569L19.383 8.1789L20.6445 0.295723L24.8395 0.285156Z" fill="white" />
-                <path d="M9.80171 8.64396C8.40003 4.89258 5.05603 1.77524 0 0.486033L0.0500628 0.158447H6.54782C7.42887 0.200716 8.13972 0.486032 8.38001 1.47936L9.80171 8.64396Z" fill="white" />
-                <path d="M18.9525 0.306396L12.3547 16.4954H7.9294L4.17493 2.96935C6.86814 4.79748 9.16088 7.69291 9.97184 9.70069L10.4124 11.3809L14.5173 0.306396H18.9525Z" fill="white" />
-              </svg>
-              </>}
+              {data.saveCard ? (
+                <svg width="52" height="17" viewBox="0 0 52 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M48.1677 0.274658H44.9338C43.9226 0.274658 43.1617 0.570542 42.7312 1.6167L36.5238 16.506H40.929C40.929 16.506 41.6599 14.5088 41.8101 14.0861H47.1765C47.3067 14.6461 47.6871 16.506 47.6871 16.506H51.5818L48.1677 0.274658ZM43.0115 10.7574C43.352 9.82746 44.6535 6.20289 44.6535 6.20289C44.6535 6.20289 45.0139 5.25184 45.2242 4.67064L45.5045 6.06552C45.5045 6.06552 46.3155 9.93314 46.4757 10.7574H43.0115Z" fill="white" />
+                  <path d="M30.9369 4.78697C30.9269 5.53724 31.8379 6.04447 33.2997 6.79475C35.7126 7.95715 36.8339 9.35203 36.8039 11.2119C36.7839 14.5828 33.9204 16.7597 29.5252 16.7597C27.6429 16.7385 25.8408 16.337 24.8596 15.8932L25.4503 12.258L25.981 12.5116C27.3526 13.114 28.2537 13.3676 29.9257 13.3676C31.1271 13.3676 32.4187 12.8709 32.4387 11.7825C32.4487 11.0639 31.888 10.5567 30.2661 9.76415C28.6642 8.99274 26.5616 7.69297 26.5917 5.36817C26.6117 2.21912 29.5352 0 33.6701 0C35.2921 0 36.6036 0.359287 37.4246 0.686872L36.854 4.1952L36.4735 4.01556C35.6926 3.68797 34.7014 3.38152 33.3297 3.39209C31.6978 3.38152 30.9369 4.11066 30.9369 4.78697Z" fill="white" />
+                  <path d="M24.8395 0.285156L22.2264 16.5059H18.0414L18.552 13.3569L19.383 8.1789L20.6445 0.295723L24.8395 0.285156Z" fill="white" />
+                  <path d="M9.80171 8.64396C8.40003 4.89258 5.05603 1.77524 0 0.486033L0.0500628 0.158447H6.54782C7.42887 0.200716 8.13972 0.486032 8.38001 1.47936L9.80171 8.64396Z" fill="white" />
+                  <path d="M18.9525 0.306396L12.3547 16.4954H7.9294L4.17493 2.96935C6.86814 4.79748 9.16088 7.69291 9.97184 9.70069L10.4124 11.3809L14.5173 0.306396H18.9525Z" fill="white" />
+                </svg>
+              ) : (
+                <svg width="52" height="17" viewBox="0 0 52 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M48.1677 0.274658H44.9338C43.9226 0.274658 43.1617 0.570542 42.7312 1.6167L36.5238 16.506H40.929C40.929 16.506 41.6599 14.5088 41.8101 14.0861H47.1765C47.3067 14.6461 47.6871 16.506 47.6871 16.506H51.5818L48.1677 0.274658ZM43.0115 10.7574C43.352 9.82746 44.6535 6.20289 44.6535 6.20289C44.6535 6.20289 45.0139 5.25184 45.2242 4.67064L45.5045 6.06552C45.5045 6.06552 46.3155 9.93314 46.4757 10.7574H43.0115Z" fill="white" />
+                  <path d="M30.9369 4.78697C30.9269 5.53724 31.8379 6.04447 33.2997 6.79475C35.7126 7.95715 36.8339 9.35203 36.8039 11.2119C36.7839 14.5828 33.9204 16.7597 29.5252 16.7597C27.6429 16.7385 25.8408 16.337 24.8596 15.8932L25.4503 12.258L25.981 12.5116C27.3526 13.114 28.2537 13.3676 29.9257 13.3676C31.1271 13.3676 32.4187 12.8709 32.4387 11.7825C32.4487 11.0639 31.888 10.5567 30.2661 9.76415C28.6642 8.99274 26.5616 7.69297 26.5917 5.36817C26.6117 2.21912 29.5352 0 33.6701 0C35.2921 0 36.6036 0.359287 37.4246 0.686872L36.854 4.1952L36.4735 4.01556C35.6926 3.68797 34.7014 3.38152 33.3297 3.39209C31.6978 3.38152 30.9369 4.11066 30.9369 4.78697Z" fill="white" />
+                  <path d="M24.8395 0.285156L22.2264 16.5059H18.0414L18.552 13.3569L19.383 8.1789L20.6445 0.295723L24.8395 0.285156Z" fill="white" />
+                  <path d="M9.80171 8.64396C8.40003 4.89258 5.05603 1.77524 0 0.486033L0.0500628 0.158447H6.54782C7.42887 0.200716 8.13972 0.486032 8.38001 1.47936L9.80171 8.64396Z" fill="white" />
+                  <path d="M18.9525 0.306396L12.3547 16.4954H7.9294L4.17493 2.96935C6.86814 4.79748 9.16088 7.69291 9.97184 9.70069L10.4124 11.3809L14.5173 0.306396H18.9525Z" fill="white" />
+                </svg>
+              )}
             </span>
           </div>
           <p className="text-white text-lg tracking-[0.2em] font-semibold mb-4">{maskedNumber}</p>
 
-          <div className=" w-full flex justify-between items-center">
-            <div className=" flex flex-col gap-1 ">
-              <p className="text-[10px] text-[#fffefeea] tracking-wider mb-0.5"> CARD HOLDER</p>
+          <div className="w-full flex justify-between items-center">
+            <div className="flex flex-col gap-1">
+              <p className="text-[10px] text-[#fffefeea] tracking-wider mb-0.5">CARD HOLDER</p>
               <p className="text-white text-sm font-medium">sujat sayyed</p>
             </div>
-
             <div>
               <p className="text-[10px] text-[#fffefeea] tracking-wider mb-0.5">EXPIRY DATE</p>
               <p className="text-white text-sm font-medium">
@@ -90,16 +87,18 @@ export function CardAddedModal({ isOpen, onClose, data }: CardAddedModalProps) {
           </div>
         </div>
 
-
-
-        <button onClick={onClose} className="w-81.25  rounded-2xl bg-[#262626] text-white font-semibold text-sm py-4">
-          +
-          Add cart
-
+        <button 
+          onClick={onClose} 
+          className="w-81.25 rounded-2xl bg-[#262626] text-white font-semibold text-sm py-4"
+        >
+          + Add Card
         </button>
 
-        <button onClick={onClose} className="w-81.25  translate-y-33 rounded-xl bg-[#EAEAEA] text-black font-semibold text-sm py-3.5">
-          continue
+        <button 
+          onClick={onContinue || onClose} 
+          className="w-81.25 translate-y-33 rounded-xl bg-[#EAEAEA] text-black font-semibold text-sm py-3.5"
+        >
+          Continue
         </button>
       </div>
     </Modal>

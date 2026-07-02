@@ -1,8 +1,8 @@
 "use client";
 import * as React from "react";
 import { ArrowLeft, CreditCard } from "lucide-react";
-import { Modal } from "../../../../components/ui/Modal";
 import type { CardFormData } from "../../Type";
+import { Modal } from "../../../../components/ui/Modal";
 
 export interface AddCardManualModalProps {
     isOpen: boolean;
@@ -14,7 +14,12 @@ export interface AddCardManualModalProps {
 const formatCardNumber = (value: string) =>
     value.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim();
 
-export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCardManualModalProps) {
+export function AddCardManualModal({ 
+    isOpen, 
+    onClose, 
+    onBack, 
+    onSubmit 
+}: AddCardManualModalProps) {
     const [cardNumber, setCardNumber] = React.useState("");
     const [mm, setMm] = React.useState("");
     const [yy, setYy] = React.useState("");
@@ -63,11 +68,9 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
             <form onSubmit={handleSubmit} className="flex flex-col">
-
-
-                <div className=" -translate-y-3">
+                <div className="-translate-y-3">
                     <button
-                        onClick={onClose}
+                        onClick={onBack}
                         className="w-13 h-8 rounded-full bg-[#242424] flex items-center justify-center text-white mb-5"
                     >
                         <ArrowLeft size={18} />
@@ -76,17 +79,15 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
                     <h2 className="text-4xl font-bold text-white mb-1">Add new card</h2>
                     <p className="text-base text-[#EAEAEA99] leading-5 mt-3 mb-5">
                         We recommend you to set card for further
-                        <p>
-                            reference too you can use it anytime
-                        </p>
+                        <p>reference too you can use it anytime</p>
                     </p>
                 </div>
 
-
                 <label className="text-sm font-semibold text-white mb-3">Card number</label>
                 <div
-                    className={`flex items-center gap-2 rounded-2xl border px-4 py-3.5 mb-1 ${errors.cardNumber ? "border-red-500" : "border-[#3a3a3a]"
-                        }`}
+                    className={`flex items-center gap-2 rounded-2xl border px-4 py-3.5 mb-1 ${
+                        errors.cardNumber ? "border-red-500" : "border-[#3a3a3a]"
+                    }`}
                 >
                     <CreditCard size={18} className="text-[#EAEAEA80]" />
                     <input
@@ -112,8 +113,9 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
                                 }}
                                 placeholder="MM"
                                 inputMode="numeric"
-                                className={`w-full text-center rounded-2xl border px-2 py-3.5 bg-transparent outline-none text-white placeholder:text-[#EAEAEA4D] text-[15px] ${errors.mm ? "border-red-500" : "border-[#3a3a3a]"
-                                    }`}
+                                className={`w-full text-center rounded-2xl border px-2 py-3.5 bg-transparent outline-none text-white placeholder:text-[#EAEAEA4D] text-[15px] ${
+                                    errors.mm ? "border-red-500" : "border-[#3a3a3a]"
+                                }`}
                             />
                             <input
                                 ref={yyRef}
@@ -125,8 +127,9 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
                                 }}
                                 placeholder="YY"
                                 inputMode="numeric"
-                                className={`w-full text-center rounded-2xl border px-2 py-3.5 bg-transparent outline-none text-white placeholder:text-[#EAEAEA4D] text-[15px] ${errors.yy ? "border-red-500" : "border-[#3a3a3a]"
-                                    }`}
+                                className={`w-full text-center rounded-2xl border px-2 py-3.5 bg-transparent outline-none text-white placeholder:text-[#EAEAEA4D] text-[15px] ${
+                                    errors.yy ? "border-red-500" : "border-[#3a3a3a]"
+                                }`}
                             />
                         </div>
                     </div>
@@ -134,8 +137,9 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
                     <div className="flex-1">
                         <label className="text-sm font-semibold text-white mb-2 block">Security Code</label>
                         <div
-                            className={`flex items-center gap-2 rounded-2xl border px-4 py-3.5 ${errors.cvv ? "border-red-500" : "border-[#3a3a3a]"
-                                }`}
+                            className={`flex items-center gap-2 rounded-2xl border px-4 py-3.5 ${
+                                errors.cvv ? "border-red-500" : "border-[#3a3a3a]"
+                            }`}
                         >
                             <CreditCard size={16} className="text-[#EAEAEA80]" />
                             <input
@@ -152,18 +156,22 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
                 </div>
 
                 <div className="flex items-center justify-between mt-6">
-                    <span className="text-sm text-[#eaeaeaa8]">Save this card for future refrence</span>
+                    <span className="text-sm text-[#eaeaeaa8]">Save this card for future reference</span>
                     <button
                         type="button"
                         onClick={() => setSaveCard((s) => !s)}
-                        className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-colors ${saveCard ? "bg-[#34C759] justify-end" : "bg-[#3a3a3a] justify-start"
-                            }`}
+                        className={`w-11 h-6 rounded-full flex items-center px-0.5 transition-colors ${
+                            saveCard ? "bg-[#34C759] justify-end" : "bg-[#3a3a3a] justify-start"
+                        }`}
                     >
                         <span className="w-5 h-5 rounded-full bg-white block" />
                     </button>
                 </div>
 
-                <button type="submit" className="w-full translate-y-33 cursor-pointer rounded-xl bg-[#EAEAEA] text-black font-bold text-sm py-3.5 mt-8">
+                <button 
+                    type="submit" 
+                    className="w-full translate-y-33 cursor-pointer rounded-xl bg-[#EAEAEA] text-black font-bold text-sm py-3.5 mt-8"
+                >
                     Add Card
                 </button>
             </form>

@@ -1,9 +1,9 @@
 "use client";
 import * as React from "react";
 import { ArrowLeft, ChevronRight, Landmark, Plus } from "lucide-react";
-import { Modal } from "../../../../components/ui/Modal";
-import { BANKS } from "../../Type";
 
+import { BANKS } from "../../Type";
+import { Modal } from "../../../../components/ui/Modal";
 
 export interface SelectBankModalProps {
     isOpen: boolean;
@@ -11,15 +11,13 @@ export interface SelectBankModalProps {
     onAddManually: () => void;
 }
 
-
 export function SelectBankModal({ isOpen, onClose, onAddManually }: SelectBankModalProps) {
     const [activeTab, setActiveTab] = React.useState<"banks" | "loan">("banks");
 
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
-            <div className="flex flex-col  justify-center ">
-
-                <div className=" -translate-y-3">
+            <div className="flex flex-col justify-center">
+                <div className="-translate-y-3">
                     <button
                         onClick={onClose}
                         className="w-13 h-8 rounded-full bg-[#242424] flex items-center justify-center text-white mb-5"
@@ -30,24 +28,28 @@ export function SelectBankModal({ isOpen, onClose, onAddManually }: SelectBankMo
                     <h2 className="text-4xl font-bold text-white mb-1">Add new card</h2>
                     <p className="text-base text-[#EAEAEA99] leading-5 mt-3 mb-5">
                         Select bank to add card by verifying using
-                        <p>
-                            OTP to your registered mobile number
-                        </p>
+                        <p>OTP to your registered mobile number</p>
                     </p>
                 </div>
 
-                <div className=" w-full items-center justify-center flex bg-[#1f1f1f] rounded-full p-1 mb-4 ">
+                <div className="w-full items-center justify-center flex bg-[#1f1f1f] rounded-full p-1 mb-4">
                     <button
                         onClick={() => setActiveTab("banks")}
-                        className={`px-20 py-1 text-sm font-semibold rounded-lg transition-colors ${activeTab === "banks" ? "bg-[#636366] text-white border-[0.5px] border-[#EAEAEA8A]" : "text-white"
-                            }`}
+                        className={`px-20 py-1 text-sm font-semibold rounded-lg transition-colors ${
+                            activeTab === "banks" 
+                            ? "bg-[#636366] text-white border-[0.5px] border-[#EAEAEA8A]" 
+                            : "text-white"
+                        }`}
                     >
                         Banks
                     </button>
                     <button
                         onClick={() => setActiveTab("loan")}
-                        className={`px-20 py-1 text-sm font-semibold rounded-lg transition-colors ${activeTab === "loan" ? "bg-[#636366] text-white border-[0.5px] border-[#EAEAEA8A]" : "text-white"
-                            }`}
+                        className={`px-20 py-1 text-sm font-semibold rounded-lg transition-colors ${
+                            activeTab === "loan" 
+                            ? "bg-[#636366] text-white border-[0.5px] border-[#EAEAEA8A]" 
+                            : "text-white"
+                        }`}
                     >
                         Loan
                     </button>
@@ -56,10 +58,14 @@ export function SelectBankModal({ isOpen, onClose, onAddManually }: SelectBankMo
                 {activeTab === "banks" ? (
                     <div className="flex flex-col divide-y divide-[#242424] mb-4">
                         {BANKS.map((bank) => (
-                            <button key={bank.id} type="button" className="flex items-center justify-between py-3.5 text-left">
+                            <button 
+                                key={bank.id} 
+                                type="button" 
+                                className="flex items-center justify-between py-3.5 text-left"
+                            >
                                 <div className="flex items-center gap-3">
                                     <div
-                                        className="w-9 h-9 rounded-lg  flex items-center justify-center text-white text-sm font-bold"
+                                        className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-sm font-bold"
                                         style={{ backgroundColor: bank.color }}
                                     >
                                         {bank.tag}

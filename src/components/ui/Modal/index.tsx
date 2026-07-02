@@ -190,6 +190,7 @@
 //         </div>
 //     );
 // }
+
 "use client";
 import * as React from "react";
 import { createPortal } from "react-dom";
@@ -219,7 +220,7 @@ export interface ModalProps {
 }
 
 const sizeClasses: Record<ModalSize, string> = {
-    auto: "h-auto max-h-[85vh]",
+    auto: "h-[95vh] max-h-[93vh]",
     half: "h-[50vh]",
     xxl: "h-[53vh]",
     full: "h-[90vh]",
@@ -320,8 +321,8 @@ export function Modal({
         >
             <div
                 className={cn(
-                    "absolute inset-0 bg-white/70 transition-opacity duration-300",
-                    overlayBlur && "backdrop-blur-sm",
+                    "absolute inset-0  transition-opacity duration-300",
+                    overlayBlur && "",
                     isAnimating ? "opacity-100" : "opacity-0"
                 )}
                 onClick={() => closeOnOverlayClick && onClose?.()}
@@ -340,8 +341,8 @@ export function Modal({
 
                 }}
                 className={cn(
-                    "relative z-10 max-w-[450px] 3xl:max-w-[504px] border-t-2 border-brand-500 w-full bg-white shadow-2xl flex flex-col mx-auto",
-                    isBottomVariant ? "rounded-t-3xl" : `rounded-${rounded}`,
+                    "relative z-10 max-w-[400px] 3xl:max-w-[504px] border-t-2 border-brand-500 w-full bg-[#191919]  flex flex-col mx-auto",
+                    isBottomVariant ? "rounded-t-lg" : `rounded-${rounded}`,
                     sizeClasses[size],
                     contentClassName
                 )}
@@ -353,27 +354,9 @@ export function Modal({
                     </div>
                 )}
                 {(title || showCloseButton) && (
-                    <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
-                        <div>
-                            {title && (
-                                <h3 className="text-lg font-semibold text-gray-900">
-                                    {title}
-                                </h3>
-                            )}
-                            {description && (
-                                <p className="mt-1 text-sm text-gray-500">
-                                    {description}
-                                </p>
-                            )}
-                        </div>
-                        {showCloseButton && (
-                            <button
-                                onClick={onClose}
-                                className="rounded-full p- text-brand-600 hover:bg-gray-100 hover:text-gray-600 transition-colors"
-                            >
-                                <X className="h-7 w-7" />
-                            </button>
-                        )}
+                    <div className="flex items-center justify-between px-4 w-[90%] mx-auto rounded-tl-2xl rounded-tr-2xl  py-1.5 bg-[#282828] -translate-y-8.5 border-t bordert-[#393939]  ">
+
+
                     </div>
                 )}
                 <div className="flex-1 overflow-y-auto px-4 py-4">

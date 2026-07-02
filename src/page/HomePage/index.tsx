@@ -1,6 +1,6 @@
-import React from 'react';
+import { AddCardFlow } from './components/addcardflow';
 
-const HomePage: React.FC = () => {
+const HomePage = () => {
   return (
     <div className=" bg-[#000000] overflow-x-hidden font-sans">
       <div className="max-w-md flex flex-col gap-3 px-4 mx-auto bg-[#000000] shadow-lg relative">
@@ -48,14 +48,8 @@ const HomePage: React.FC = () => {
           </p>
         </div>
 
-        <div className=" w-full mt-2 flex items-center gap-4">
-          <button className="text-sm font-semibold flex justify-center items-center gap-2 rounded-xl text-black bg-[#EAEAEA] w-full py-3 cursor-pointer font-extrabold  border border-blue-200 hover:bg-blue-100 transition">
-            <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.1667 12.5H12.5C12.2639 12.5 12.066 12.4201 11.9063 12.2604C11.7465 12.1007 11.6667 11.9028 11.6667 11.6667C11.6667 11.4306 11.7465 11.2326 11.9063 11.0729C12.066 10.9132 12.2639 10.8333 12.5 10.8333H14.1667V9.16667C14.1667 8.93056 14.2465 8.73264 14.4063 8.57292C14.566 8.41319 14.7639 8.33333 15 8.33333C15.2361 8.33333 15.434 8.41319 15.5938 8.57292C15.7535 8.73264 15.8333 8.93056 15.8333 9.16667V10.8333H17.5C17.7361 10.8333 17.934 10.9132 18.0938 11.0729C18.2535 11.2326 18.3333 11.4306 18.3333 11.6667C18.3333 11.9028 18.2535 12.1007 18.0938 12.2604C17.934 12.4201 17.7361 12.5 17.5 12.5H15.8333V14.1667C15.8333 14.4028 15.7535 14.6007 15.5938 14.7604C15.434 14.9201 15.2361 15 15 15C14.7639 15 14.566 14.9201 14.4063 14.7604C14.2465 14.6007 14.1667 14.4028 14.1667 14.1667V12.5ZM1.66667 6.66667H15V3.33333H1.66667V6.66667ZM1.66667 13.3333C1.20833 13.3333 0.815972 13.1701 0.489583 12.8438C0.163194 12.5174 0 12.125 0 11.6667V1.66667C0 1.20833 0.163194 0.815972 0.489583 0.489583C0.815972 0.163194 1.20833 0 1.66667 0H15C15.4583 0 15.8507 0.163194 16.1771 0.489583C16.5035 0.815972 16.6667 1.20833 16.6667 1.66667V5.83333C16.6667 6.06944 16.5868 6.26736 16.4271 6.42708C16.2674 6.58681 16.0694 6.66667 15.8333 6.66667H14.1667C13.0139 6.66667 12.0313 7.07292 11.2188 7.88542C10.4063 8.69792 10 9.68056 10 10.8333V12.5C10 12.7361 9.92014 12.934 9.76042 13.0938C9.6007 13.2535 9.40278 13.3333 9.16667 13.3333H1.66667Z" fill="#2f2f2f" />
-            </svg>
-            Add new card
-          </button>
-
+        <div className=" w-ful l mt-2 flex items-center gap-4">
+          <AddCardFlow/>
         </div>
 
         <div className=" mt-6 rounded-3xl border-2 border-[#2f2f2f] p-3 py-4  flex items-center justify-between shadow-md">

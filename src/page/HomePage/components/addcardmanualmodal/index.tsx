@@ -163,7 +163,7 @@ export function AddCardManualModal({ isOpen, onClose, onBack, onSubmit }: AddCar
                     </button>
                 </div>
 
-                <button type="submit" className="w-full rounded-xl bg-[#EAEAEA] text-black font-bold text-sm py-3.5 mt-8">
+                <button type="submit" className="w-full translate-y-33 cursor-pointer rounded-xl bg-[#EAEAEA] text-black font-bold text-sm py-3.5 mt-8">
                     Add Card
                 </button>
             </form>

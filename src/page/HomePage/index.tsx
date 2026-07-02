@@ -2,121 +2,92 @@ import React from 'react';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#000000] font-sans">
-      {/* Main Container - مطابق تصویر با حاشیه و سایه */}
-      <div className="max-w-md mx-auto bg-white min-h-screen shadow-lg relative">
-        
-        {/* Header - نوار بالا با ساعت 9:41 و آیکون‌ها */}
-        <div className="flex justify-between items-center px-5 pt-3 pb-2">
-          <span className="text-sm font-semibold text-gray-800">9:41</span>
+    <div className=" bg-[#000000] overflow-x-hidden font-sans">
+      <div className="max-w-md flex flex-col gap-3 px-4 mx-auto bg-[#000000] shadow-lg relative">
+
+        <div className="flex justify-between items-center w-full ">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="18" fill="#6F7987" />
+            <path d="M16.8946 16.7354H15.168C15.1188 16.4523 15.028 16.2015 14.8957 15.983C14.7633 15.7614 14.5987 15.5736 14.4017 15.4197C14.2047 15.2659 13.9801 15.1504 13.7277 15.0735C13.4784 14.9935 13.2091 14.9535 12.9198 14.9535C12.4059 14.9535 11.9504 15.0827 11.5533 15.3413C11.1563 15.5967 10.8455 15.9722 10.6208 16.4677C10.3961 16.9601 10.2838 17.5618 10.2838 18.2727C10.2838 18.996 10.3961 19.6054 10.6208 20.1009C10.8486 20.5933 11.1594 20.9657 11.5533 21.218C11.9504 21.4673 12.4043 21.592 12.9152 21.592C13.1983 21.592 13.463 21.555 13.7092 21.4812C13.9585 21.4042 14.1817 21.2919 14.3786 21.1442C14.5787 20.9964 14.7464 20.8149 14.8818 20.5994C15.0203 20.384 15.1157 20.1378 15.168 19.8608L16.8946 19.87C16.83 20.3194 16.6899 20.741 16.4745 21.1349C16.2622 21.5289 15.9836 21.8767 15.6389 22.1783C15.2942 22.4768 14.8911 22.7107 14.4294 22.88C13.9678 23.0462 13.4553 23.1293 12.8921 23.1293C12.0612 23.1293 11.3194 22.9369 10.667 22.5522C10.0145 22.1675 9.50055 21.612 9.12508 20.8857C8.7496 20.1593 8.56187 19.2884 8.56187 18.2727C8.56187 17.254 8.75114 16.383 9.12969 15.6598C9.50824 14.9335 10.0238 14.378 10.6762 13.9933C11.3287 13.6085 12.0673 13.4162 12.8921 13.4162C13.4184 13.4162 13.9077 13.4901 14.3602 13.6378C14.8126 13.7855 15.2157 14.0025 15.5697 14.2887C15.9236 14.5719 16.2144 14.9196 16.4422 15.332C16.673 15.7414 16.8238 16.2092 16.8946 16.7354ZM22.5054 19.8239H24.0566L24.9752 21.0149L25.6308 21.7905L27.205 23.8125H25.5431L24.472 22.4553L24.015 21.8089L22.5054 19.8239ZM27.4312 18.2727C27.4312 19.2914 27.2404 20.1639 26.8588 20.8903C26.4802 21.6135 25.9632 22.1675 25.3076 22.5522C24.6552 22.9369 23.915 23.1293 23.0871 23.1293C22.2592 23.1293 21.5175 22.9369 20.862 22.5522C20.2095 22.1644 19.6925 21.6089 19.3108 20.8857C18.9323 20.1593 18.743 19.2884 18.743 18.2727C18.743 17.254 18.9323 16.383 19.3108 15.6598C19.6925 14.9335 20.2095 14.378 20.862 13.9933C21.5175 13.6085 22.2592 13.4162 23.0871 13.4162C23.915 13.4162 24.6552 13.6085 25.3076 13.9933C25.9632 14.378 26.4802 14.9335 26.8588 15.6598C27.2404 16.383 27.4312 17.254 27.4312 18.2727ZM25.7093 18.2727C25.7093 17.5556 25.5969 16.9509 25.3723 16.4585C25.1507 15.9629 24.8429 15.589 24.449 15.3366C24.055 15.0812 23.6011 14.9535 23.0871 14.9535C22.5731 14.9535 22.1192 15.0812 21.7252 15.3366C21.3313 15.589 21.022 15.9629 20.7973 16.4585C20.5757 16.9509 20.4649 17.5556 20.4649 18.2727C20.4649 18.9898 20.5757 19.5961 20.7973 20.0916C21.022 20.584 21.3313 20.958 21.7252 21.2134C22.1192 21.4658 22.5731 21.592 23.0871 21.592C23.6011 21.592 24.055 21.4658 24.449 21.2134C24.8429 20.958 25.1507 20.584 25.3723 20.0916C25.5969 19.5961 25.7093 18.9898 25.7093 18.2727Z" fill="#EAEAEA" />
+          </svg>
           <div className="flex items-center gap-1.5">
-            {/* آیکون سیگنال (دمو) */}
-            <div className="w-4 h-4 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-700">
-                <path d="M18.36 6.64a9 9 0 0 1 0 12.72" />
-                <path d="M14.12 10.88a5 5 0 0 1 0 7.24" />
-                <path d="M9.88 15.12a1.5 1.5 0 0 1 0-2.24" />
-              </svg>
-            </div>
-            {/* آیکون وای‌فای (دمو) */}
-            <div className="w-4 h-4 flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-700">
-                <path d="M5 12.55a10.94 10.94 0 0 1 14.08 0" />
-                <path d="M1.42 9a16 16 0 0 1 21.16 0" />
-                <path d="M8.53 16.11a6 6 0 0 1 6.94 0" />
-                <path d="M12 20h.01" />
-              </svg>
-            </div>
-            {/* آیکون باتری (دمو) */}
-            <div className="flex items-center gap-0.5">
-              <div className="w-6 h-3 border border-gray-600 rounded-sm flex items-center px-0.5 relative">
-                <div className="w-4 h-2 bg-green-500 rounded-sm"></div>
-              </div>
-              <div className="w-0.5 h-1.5 bg-gray-600 rounded-r"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* بخش مبلغ 0.00 $ */}
-        <div className="px-5 mt-1">
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-bold text-gray-900">$0.00</span>
-            <span className="text-xs text-gray-400 font-medium">USD</span>
-          </div>
-        </div>
-
-        {/* پیام Add new card to see... */}
-        <div className="px-5 mt-1">
-          <p className="text-sm text-gray-500 leading-5">
-            Add new card to see all your pending and upcoming due and amazing rewards
-          </p>
-        </div>
-
-        {/* No due found + Add new card دکمه */}
-        <div className="px-5 mt-3 flex items-center gap-4">
-          <span className="text-sm font-medium text-gray-800">No due found</span>
-          <button className="text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200 hover:bg-blue-100 transition">
-            Add new card
-          </button>
-        </div>
-
-        {/* کارت آبی Refer 3 friends... */}
-        <div className="mx-5 mt-4 bg-blue-600 rounded-2xl px-4 py-3.5 flex items-center justify-between shadow-md">
-          <div className="flex items-center gap-2.5">
-            {/* آیکون جایزه/هدیه (دمو) */}
-            <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                <polyline points="20 12 20 22 4 22 4 12" />
-                <rect x="2" y="7" width="20" height="5" rx="1" />
-                <line x1="12" y1="22" x2="12" y2="7" />
-                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
-                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-white text-sm font-semibold">Refer 3 friends and get your ₹250 voucher</p>
-              <p className="text-blue-100 text-xs">Refer app to your 3 friends and get voucher t&C apply</p>
-            </div>
-          </div>
-          {/* فلش کوچک سمت راست */}
-          <div className="text-white">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-              <path d="M5 12h14" />
-              <path d="M12 5l7 7-7 7" />
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="18" fill="#EAEAEA" fill-opacity="0.12" />
+              <mask id="mask0_11_2728" maskUnits="userSpaceOnUse" x="8" y="8" width="20" height="20">
+                <rect x="8" y="8" width="20" height="20" fill="#D9D9D9" />
+              </mask>
+              <g mask="url(#mask0_11_2728)">
+                <path d="M17.9999 26.3333C17.5416 26.3333 17.1492 26.1701 16.8228 25.8437C16.4964 25.5173 16.3333 25.125 16.3333 24.6666H19.6666C19.6666 25.125 19.5034 25.5173 19.177 25.8437C18.8506 26.1701 18.4583 26.3333 17.9999 26.3333ZM12.1666 23.8333C11.9305 23.8333 11.7326 23.7534 11.5728 23.5937C11.4131 23.434 11.3333 23.2361 11.3333 23C11.3333 22.7638 11.4131 22.5659 11.5728 22.4062C11.7326 22.2465 11.9305 22.1666 12.1666 22.1666H12.9999V16.3333C12.9999 15.1805 13.3471 14.1562 14.0416 13.2604C14.736 12.3645 15.6388 11.7777 16.7499 11.5V10.9166C16.7499 10.5694 16.8714 10.2743 17.1145 10.0312C17.3576 9.78815 17.6527 9.66663 17.9999 9.66663C18.3471 9.66663 18.6423 9.78815 18.8853 10.0312C19.1284 10.2743 19.2499 10.5694 19.2499 10.9166V11.1875C19.111 11.4652 19.0069 11.7569 18.9374 12.0625C18.868 12.368 18.8333 12.6805 18.8333 13C18.8333 14.1527 19.2395 15.1354 20.052 15.9479C20.8645 16.7604 21.8471 17.1666 22.9999 17.1666V22.1666H23.8333C24.0694 22.1666 24.2673 22.2465 24.427 22.4062C24.5867 22.5659 24.6666 22.7638 24.6666 23C24.6666 23.2361 24.5867 23.434 24.427 23.5937C24.2673 23.7534 24.0694 23.8333 23.8333 23.8333H12.1666ZM22.9999 15.5C22.3055 15.5 21.7152 15.2569 21.2291 14.7708C20.743 14.2847 20.4999 13.6944 20.4999 13C20.4999 12.3055 20.743 11.7152 21.2291 11.2291C21.7152 10.743 22.3055 10.5 22.9999 10.5C23.6944 10.5 24.2846 10.743 24.7708 11.2291C25.2569 11.7152 25.4999 12.3055 25.4999 13C25.4999 13.6944 25.2569 14.2847 24.7708 14.7708C24.2846 15.2569 23.6944 15.5 22.9999 15.5Z" fill="#EAEAEA" fill-opacity="0.8" />
+              </g>
+            </svg>
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="18" fill="#EAEAEA" fill-opacity="0.12" />
+              <mask id="mask0_11_2732" maskUnits="userSpaceOnUse" x="8" y="8" width="20" height="20">
+                <rect x="8" y="8" width="20" height="20" fill="#D9D9D9" />
+              </mask>
+              <g mask="url(#mask0_11_2732)">
+                <path d="M13.0001 24.6667C12.0834 24.6667 11.2987 24.3403 10.6459 23.6875C9.99314 23.0348 9.66675 22.25 9.66675 21.3334V14.6667C9.66675 13.75 9.99314 12.9653 10.6459 12.3125C11.2987 11.6598 12.0834 11.3334 13.0001 11.3334H23.0001C23.9167 11.3334 24.7015 11.6598 25.3542 12.3125C26.007 12.9653 26.3334 13.75 26.3334 14.6667V21.3334C26.3334 22.25 26.007 23.0348 25.3542 23.6875C24.7015 24.3403 23.9167 24.6667 23.0001 24.6667H13.0001ZM13.0001 14.6667H23.0001C23.3056 14.6667 23.5973 14.7014 23.8751 14.7709C24.1529 14.8403 24.4167 14.9514 24.6667 15.1042V14.6667C24.6667 14.2084 24.5036 13.816 24.1772 13.4896C23.8508 13.1632 23.4584 13 23.0001 13H13.0001C12.5417 13 12.1494 13.1632 11.823 13.4896C11.4966 13.816 11.3334 14.2084 11.3334 14.6667V15.1042C11.5834 14.9514 11.8473 14.8403 12.1251 14.7709C12.4029 14.7014 12.6945 14.6667 13.0001 14.6667ZM11.4584 17.375L20.7292 19.625C20.8542 19.6528 20.9792 19.6528 21.1042 19.625C21.2292 19.5973 21.3473 19.5417 21.4584 19.4584L24.3542 17.0417C24.2015 16.8334 24.007 16.6632 23.7709 16.5313C23.5348 16.3993 23.2779 16.3334 23.0001 16.3334H13.0001C12.639 16.3334 12.323 16.4271 12.0522 16.6146C11.7813 16.8021 11.5834 17.0556 11.4584 17.375Z" fill="#EAEAEA" fill-opacity="0.8" />
+              </g>
             </svg>
           </div>
         </div>
 
-        {/* خط جداکننده PERSONALISED */}
-        <div className="relative flex items-center px-5 mt-6">
-          <div className="flex-grow border-t border-gray-200"></div>
-          <span className="mx-3 text-xs font-semibold text-gray-400 tracking-wider">PERSONALISED</span>
-          <div className="flex-grow border-t border-gray-200"></div>
+        <div className=" mt-1 flex w-full gap-40 justify-center  items-center">
+          <span className="text-3xl font-bold text-[#EAEAEA4D]">$0.00</span>
+          <div className=' w-full flex translate-x-5 gap-1  items-center'>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.66667 10C6.85556 10 7.01389 9.93611 7.14167 9.80833C7.26944 9.68056 7.33333 9.52222 7.33333 9.33333V6.66667C7.33333 6.47778 7.26944 6.31944 7.14167 6.19167C7.01389 6.06389 6.85556 6 6.66667 6C6.47778 6 6.31944 6.06389 6.19167 6.19167C6.06389 6.31944 6 6.47778 6 6.66667V9.33333C6 9.52222 6.06389 9.68056 6.19167 9.80833C6.31944 9.93611 6.47778 10 6.66667 10ZM6.66667 4.66667C6.85556 4.66667 7.01389 4.60278 7.14167 4.475C7.26944 4.34722 7.33333 4.18889 7.33333 4C7.33333 3.81111 7.26944 3.65278 7.14167 3.525C7.01389 3.39722 6.85556 3.33333 6.66667 3.33333C6.47778 3.33333 6.31944 3.39722 6.19167 3.525C6.06389 3.65278 6 3.81111 6 4C6 4.18889 6.06389 4.34722 6.19167 4.475C6.31944 4.60278 6.47778 4.66667 6.66667 4.66667ZM6.66667 13.3333C5.74444 13.3333 4.87778 13.1583 4.06667 12.8083C3.25556 12.4583 2.55 11.9833 1.95 11.3833C1.35 10.7833 0.875 10.0778 0.525 9.26667C0.175 8.45555 0 7.58889 0 6.66667C0 5.74444 0.175 4.87778 0.525 4.06667C0.875 3.25556 1.35 2.55 1.95 1.95C2.55 1.35 3.25556 0.875 4.06667 0.525C4.87778 0.175 5.74444 0 6.66667 0C7.58889 0 8.45555 0.175 9.26667 0.525C10.0778 0.875 10.7833 1.35 11.3833 1.95C11.9833 2.55 12.4583 3.25556 12.8083 4.06667C13.1583 4.87778 13.3333 5.74444 13.3333 6.66667C13.3333 7.58889 13.1583 8.45555 12.8083 9.26667C12.4583 10.0778 11.9833 10.7833 11.3833 11.3833C10.7833 11.9833 10.0778 12.4583 9.26667 12.8083C8.45555 13.1583 7.58889 13.3333 6.66667 13.3333ZM6.66667 12C8.15555 12 9.41667 11.4833 10.45 10.45C11.4833 9.41667 12 8.15555 12 6.66667C12 5.17778 11.4833 3.91667 10.45 2.88333C9.41667 1.85 8.15555 1.33333 6.66667 1.33333C5.17778 1.33333 3.91667 1.85 2.88333 2.88333C1.85 3.91667 1.33333 5.17778 1.33333 6.66667C1.33333 8.15555 1.85 9.41667 2.88333 10.45C3.91667 11.4833 5.17778 12 6.66667 12Z" fill="#EAEAEA" fill-opacity="0.3" />
+            </svg>
+            <span className="text-xs text-[#EAEAEA4D] font-medium">No due found</span>
+          </div>
         </div>
 
-        {/* کارت 100% waiver on processing fee! */}
-        <div className="mx-5 mt-4 bg-white rounded-xl border border-gray-200 shadow-sm p-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            {/* آیکون درصد/تخفیف (دمو) */}
-            <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                <line x1="12" y1="17" x2="12.01" y2="17" />
-              </svg>
-            </div>
-            <div>
-              <p className="text-sm font-bold text-gray-800">100% waiver on processing fee!</p>
-              <p className="text-xs text-gray-500">Pay bill using CheQ and recieve discount</p>
+        <div >
+          <p className="text-base text-[#EAEAEA99] leading-5">
+            Add new card to see all your pending and upcoming due and amazing rewards
+          </p>
+        </div>
+
+        <div className=" w-full mt-2 flex items-center gap-4">
+          <button className="text-sm font-semibold flex justify-center items-center gap-2 rounded-xl text-black bg-[#EAEAEA] w-full py-3 cursor-pointer font-extrabold  border border-blue-200 hover:bg-blue-100 transition">
+            <svg width="19" height="15" viewBox="0 0 19 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.1667 12.5H12.5C12.2639 12.5 12.066 12.4201 11.9063 12.2604C11.7465 12.1007 11.6667 11.9028 11.6667 11.6667C11.6667 11.4306 11.7465 11.2326 11.9063 11.0729C12.066 10.9132 12.2639 10.8333 12.5 10.8333H14.1667V9.16667C14.1667 8.93056 14.2465 8.73264 14.4063 8.57292C14.566 8.41319 14.7639 8.33333 15 8.33333C15.2361 8.33333 15.434 8.41319 15.5938 8.57292C15.7535 8.73264 15.8333 8.93056 15.8333 9.16667V10.8333H17.5C17.7361 10.8333 17.934 10.9132 18.0938 11.0729C18.2535 11.2326 18.3333 11.4306 18.3333 11.6667C18.3333 11.9028 18.2535 12.1007 18.0938 12.2604C17.934 12.4201 17.7361 12.5 17.5 12.5H15.8333V14.1667C15.8333 14.4028 15.7535 14.6007 15.5938 14.7604C15.434 14.9201 15.2361 15 15 15C14.7639 15 14.566 14.9201 14.4063 14.7604C14.2465 14.6007 14.1667 14.4028 14.1667 14.1667V12.5ZM1.66667 6.66667H15V3.33333H1.66667V6.66667ZM1.66667 13.3333C1.20833 13.3333 0.815972 13.1701 0.489583 12.8438C0.163194 12.5174 0 12.125 0 11.6667V1.66667C0 1.20833 0.163194 0.815972 0.489583 0.489583C0.815972 0.163194 1.20833 0 1.66667 0H15C15.4583 0 15.8507 0.163194 16.1771 0.489583C16.5035 0.815972 16.6667 1.20833 16.6667 1.66667V5.83333C16.6667 6.06944 16.5868 6.26736 16.4271 6.42708C16.2674 6.58681 16.0694 6.66667 15.8333 6.66667H14.1667C13.0139 6.66667 12.0313 7.07292 11.2188 7.88542C10.4063 8.69792 10 9.68056 10 10.8333V12.5C10 12.7361 9.92014 12.934 9.76042 13.0938C9.6007 13.2535 9.40278 13.3333 9.16667 13.3333H1.66667Z" fill="#2f2f2f" />
+            </svg>
+            Add new card
+          </button>
+
+        </div>
+
+        <div className=" mt-6 rounded-3xl border-2 border-[#2f2f2f] p-3 py-4  flex items-center justify-between shadow-md">
+          <div className="flex items-center ">
+            <div className=' flex flex-col '>
+              <p className="text-white text-[1.20vw] font-semibold">Refer 3 friends and get your ₹250 voucher</p>
+              <p className="text-[#EAEAEA99] text-[1.1vw]">Refer app to your 3 friends and get voucher t&C apply</p>
             </div>
           </div>
-          <button className="text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-200 hover:bg-blue-100 transition">
-            Make Payments &gt;
-          </button>
+          <img src="../../public/g.png" alt="" className=' translate-x-1' />
         </div>
 
-        {/* فضای خالی پایین برای حفظ نسبت */}
-        <div className="h-8"></div>
+        <div className=' w-full flex flex-col gap-3'>
+          <div className=" flex w-[35%] rounded-3xl py-2 items-center  translate-y-10 bg-[#2a2a2a] ">
+            <span className="mx-3 text-xs font-semibold text-[#EAEAEA99] tracking-wider">PERSONALISED</span>
+          </div>
+
+          <div className=" w-full flex items-center gap-3">
+            <div className=' flex flex-col gap-2 mt-3 '>
+              <p className="text-md font-bold text-gray-100"><p>100% waiver</p> <span className=' text-nowrap'>on processing fee!</span></p>
+              <p className="text-sm text-[#EAEAEA99]  text-nowrap"> <p>Pay bill using CheQ and</p> recieve discount</p>
+              <p className="text-sm  text-[#00B8F0]">Make Payments</p>
+            </div>
+            <div>
+              <img src="../../public/walet.png" className=' scale-150' />
+            </div>
+          </div>
+        </div>
+
+        <div className=" flex items-center justify-center">
+          <img src="../../public/tab.png" alt="" />
+        </div>
 
       </div>
     </div>

@@ -32,7 +32,6 @@ export function SelectBankModal({ isOpen, onClose, onAddManually }: SelectBankMo
                         Select bank to add card by verifying using
                         <p>
                             OTP to your registered mobile number
-
                         </p>
                     </p>
                 </div>
@@ -80,7 +79,7 @@ export function SelectBankModal({ isOpen, onClose, onAddManually }: SelectBankMo
 
                 <button
                     onClick={onAddManually}
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#EAEAEA] text-black font-bold text-sm py-3.5 mt-1"
+                    className="w-full cursor-pointer flex items-center justify-center gap-2 rounded-xl bg-[#EAEAEA] text-black font-bold text-sm py-3.5 mt-1"
                 >
                     <Plus size={18} />
                     Add Manually

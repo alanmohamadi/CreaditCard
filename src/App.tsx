@@ -1,20 +1,19 @@
 
 import { Route, Routes } from "react-router"
-import HomePage from "./page/HomePage"
-import Layout from "./components/partial/layout/Layout"
-import Login from "./page/login"
+
+import { AuthProvider } from "./core/provider/AuthContext";
+import Layout from "./components/partial/layout/Layout";
+import HomePage from "./page/HomePage";
 
 
-function App() {
-
-  return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Layout>
-  )
+export default function App() {
+    return (
+            <AuthProvider>
+                <Routes>
+                    <Route path="/login" element={<Layout><div /></Layout>} />
+                    <Route path="/" element={<Layout><HomePage /></Layout>} />
+                    <Route path="/HomePage" element={<Layout><HomePage /></Layout>} />
+                </Routes>
+            </AuthProvider>
+    );
 }
-
-export default App

@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import LoginForm from './components/loginform';
 import CreateProfile from './components/createprofile';
-
 import NotificationAccess from './components/notifaction';
 import FirstOTP from './components/firstotp';
 import SecondOTP from './components/secondotp';
+import { useAuth } from '../../core/provider/AuthContext';
 
 type Step = 1 | 2 | 3 | 4 | 5 | 6;
 
 const Login: React.FC = () => {
   const [step, setStep] = useState<Step>(1);
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const goToStep = (stepNumber: Step) => {
     setStep(stepNumber);
+  };
+
+  const handleComplete = () => {
+    login();
+    navigate('/', { replace: true });
   };
 
   const renderStep = () => {
@@ -28,7 +36,7 @@ const Login: React.FC = () => {
       case 5:
         return <NotificationAccess onSuccess={() => goToStep(6)} />;
       case 6:
-        window.location.href = '/';
+        handleComplete();
         return null;
       default:
         return <LoginForm onSuccess={() => goToStep(2)} />;
@@ -36,7 +44,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="w-full ">
+    <div className="w-full">
       {renderStep()}
     </div>
   );

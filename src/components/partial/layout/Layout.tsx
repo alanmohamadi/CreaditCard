@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 
 export default function Layout({ children }: { children: ReactNode }) {
     return (
-        <div className="w-full max-w-[400px] h-dvh  bg-black overflow-hidden flex flex-col mx-auto md:border md:border-gray-200">
+        <div className="w-full max-w-[400px] h-dvh  bg-black overflow-hidden flex flex-col mx-auto md:border  rounded-2xl">
             <header className="h-10  text-white bg-black flex items-center justify-between px-7 z-10">
                 <p>9:41</p>
                 <div className="flex gap-1 items-center justify-center">
@@ -26,8 +26,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 </div>
             </main>
 
-            <footer className="h-14 shrink-0 bg-gray-200 flex items-center justify-center">
-                فوتر
+            <footer className="h-1.25 w-42.5 mx-auto rounded-full bg-gray-200 flex items-center justify-center">
             </footer>
         </div>
     )
